@@ -10,5 +10,5 @@ public interface UserService {
 	Integer insertUser(@Param("name") String name, @Param("pwd") String pwd);
 	User getUser(@Param("id") Integer id);
 	Integer upUser(User user);
-	 User selectByname(String username);
+	User selectByname(String username);
 }

@@ -27,8 +27,8 @@ public class UserController {
         logger.info("00" + password);
         User user = userService.checkLogin(username,password);
         if (user != null) {
-            request.getSession().setAttribute("curUser", user);
-            return "lalala";
+            request.getSession().setAttribute("user", user);
+            return "index";
         }
         else {
             modelMap.addFlashAttribute("flag", ProcessResultEnum.RETURN_RESULT_FAILED);
