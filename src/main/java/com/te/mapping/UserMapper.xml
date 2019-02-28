@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.te.dao.UserDao">
+	<resultMap type="com.te.model.User" id="get-user-list">
+		<result property = "id" column = "id" jdbcType = "INTEGER"/>
+        <result property = "name" column = "mane" jdbcType = "VARCHAR"/>
+        <result property = "pwd" column = "pwd" jdbcType = "VARCHAR"/>
+    </resultMap>
+<sql id="a">id,name,pwd</sql>
+<select id="getAllUser" resultMap="get-user-list">
+	SELECT
+    <include refid="a" />
+    FROM a;
+</select>
+<select id="checkLogin" resultMap="get-user-list">
+	SELECT
+	<include refid="a" />
+	FROM a
+	WHERE name=#{name} AND pwd=#{pwd};
+</select>
+<insert id="insertUser" parameterType="com.te.model.User">
+	INSERT INTO a(name,pwd) VALUES(#{name},#{pwd});
+</insert>
+<select id="getUser" resultMap="get-user-list">
+	SELECT
+	<include refid="a" />
+	FROM a
+	WHERE id=#{id};
+</select>
+<update id="upUser" parameterType="com.te.model.User">
+	UPDATE a SET
+	name=#{name},
+	pwd=#{pwd}
+	WHERE id=#{id};
+</update>
+<select id="selectByname" resultMap="get-user-list">
+	SELECT * FROM a WHERE name=#{name};
+</select>
+</mapper>
