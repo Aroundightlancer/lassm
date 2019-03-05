@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.te.dao.ImportantMapper" >
+  <resultMap id="BaseResultMap" type="com.te.model.Important" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="oldid" property="oldid" jdbcType="INTEGER" />
+    <result column="oldname" property="oldname" jdbcType="VARCHAR" />
+    <result column="importantname" property="importantname" jdbcType="VARCHAR" />
+    <result column="degree" property="degree" jdbcType="VARCHAR" />
+    <result column="method" property="method" jdbcType="VARCHAR" />
+    <result column="isok" property="isok" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, oldid, oldname, importantname, degree, method, isok, createtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.te.model.ImportantExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from important
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from important
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from important
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.te.model.ImportantExample" >
+    delete from important
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.te.model.Important" >
+    insert into important (id, oldid, oldname, 
+      importantname, degree, method, 
+      isok, createtime)
+    values (#{id,jdbcType=INTEGER}, #{oldid,jdbcType=INTEGER}, #{oldname,jdbcType=VARCHAR}, 
+      #{importantname,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, 
+      #{isok,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.te.model.Important" >
+    insert into important
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="oldid != null" >
+        oldid,
+      </if>
+      <if test="oldname != null" >
+        oldname,
+      </if>
+      <if test="importantname != null" >
+        importantname,
+      </if>
+      <if test="degree != null" >
+        degree,
+      </if>
+      <if test="method != null" >
+        method,
+      </if>
+      <if test="isok != null" >
+        isok,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="oldid != null" >
+        #{oldid,jdbcType=INTEGER},
+      </if>
+      <if test="oldname != null" >
+        #{oldname,jdbcType=VARCHAR},
+      </if>
+      <if test="importantname != null" >
+        #{importantname,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null" >
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="isok != null" >
+        #{isok,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.te.model.ImportantExample" resultType="java.lang.Integer" >
+    select count(*) from important
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update important
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.oldid != null" >
+        oldid = #{record.oldid,jdbcType=INTEGER},
+      </if>
+      <if test="record.oldname != null" >
+        oldname = #{record.oldname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.importantname != null" >
+        importantname = #{record.importantname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.degree != null" >
+        degree = #{record.degree,jdbcType=VARCHAR},
+      </if>
+      <if test="record.method != null" >
+        method = #{record.method,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isok != null" >
+        isok = #{record.isok,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update important
+    set id = #{record.id,jdbcType=INTEGER},
+      oldid = #{record.oldid,jdbcType=INTEGER},
+      oldname = #{record.oldname,jdbcType=VARCHAR},
+      importantname = #{record.importantname,jdbcType=VARCHAR},
+      degree = #{record.degree,jdbcType=VARCHAR},
+      method = #{record.method,jdbcType=VARCHAR},
+      isok = #{record.isok,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.te.model.Important" >
+    update important
+    <set >
+      <if test="oldid != null" >
+        oldid = #{oldid,jdbcType=INTEGER},
+      </if>
+      <if test="oldname != null" >
+        oldname = #{oldname,jdbcType=VARCHAR},
+      </if>
+      <if test="importantname != null" >
+        importantname = #{importantname,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        degree = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null" >
+        method = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="isok != null" >
+        isok = #{isok,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.te.model.Important" >
+    update important
+    set oldid = #{oldid,jdbcType=INTEGER},
+      oldname = #{oldname,jdbcType=VARCHAR},
+      importantname = #{importantname,jdbcType=VARCHAR},
+      degree = #{degree,jdbcType=VARCHAR},
+      method = #{method,jdbcType=VARCHAR},
+      isok = #{isok,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

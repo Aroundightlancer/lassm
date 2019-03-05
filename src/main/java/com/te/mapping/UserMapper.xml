@@ -5,35 +5,37 @@
 		<result property = "id" column = "id" jdbcType = "INTEGER"/>
         <result property = "name" column = "mane" jdbcType = "VARCHAR"/>
         <result property = "pwd" column = "pwd" jdbcType = "VARCHAR"/>
+		<result property = "pwd" column = "pwd" jdbcType = "VARCHAR"/>
     </resultMap>
-<sql id="a">id,name,pwd</sql>
+<sql id="a">id,name,pwd,img</sql>
 <select id="getAllUser" resultMap="get-user-list">
 	SELECT
     <include refid="a" />
-    FROM a;
+    FROM user;
 </select>
 <select id="checkLogin" resultMap="get-user-list">
 	SELECT
 	<include refid="a" />
-	FROM a
+	FROM user
 	WHERE name=#{name} AND pwd=#{pwd};
 </select>
 <insert id="insertUser" parameterType="com.te.model.User">
-	INSERT INTO a(name,pwd) VALUES(#{name},#{pwd});
+	INSERT INTO user(name,pwd) VALUES(#{name},#{pwd});
 </insert>
 <select id="getUser" resultMap="get-user-list">
 	SELECT
 	<include refid="a" />
-	FROM a
+	FROM user
 	WHERE id=#{id};
 </select>
 <update id="upUser" parameterType="com.te.model.User">
-	UPDATE a SET
+	UPDATE user SET
 	name=#{name},
-	pwd=#{pwd}
+	pwd=#{pwd},
+	img=#{img}
 	WHERE id=#{id};
 </update>
 <select id="selectByname" resultMap="get-user-list">
-	SELECT * FROM a WHERE name=#{name};
+	SELECT * FROM user WHERE name=#{name};
 </select>
 </mapper>

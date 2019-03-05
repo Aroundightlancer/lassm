@@ -1,21 +1,28 @@
 package com.te.model;
 
-public class Menu extends Entity {
+public class Menu {
+    private Integer id;
 
-    private Integer parentId; //父级编号
-    private String name;   //页面显示的菜单名称
-    private String icon;  //图标url
-    private String url;   //跳转路径的url
-    private Integer userType; //1子女，2亲属，3朋友
-    private Integer menuId; //页面的id号
-    public Integer getMenuId()
-    {
-        return menuId;
+    private Integer parentId;
+
+    private String name;
+
+    private String icon;
+
+    private String url;
+
+    private Integer menuId;
+
+    private String usertype;
+
+    public Integer getId() {
+        return id;
     }
-    public void setMenuId(Integer menuId)
-    {
-        this.menuId=menuId;
+
+    public void setId(Integer id) {
+        this.id = id;
     }
+
     public Integer getParentId() {
         return parentId;
     }
@@ -48,11 +55,19 @@ public class Menu extends Entity {
         this.url = url == null ? null : url.trim();
     }
 
-    public Integer getUserType() {
-        return userType;
+    public Integer getMenuId() {
+        return menuId;
     }
 
-    public void setUserType(Integer userType) {
-        this.userType = userType;
+    public void setMenuId(Integer menuId) {
+        this.menuId = menuId;
+    }
+
+    public String getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(String usertype) {
+        this.usertype = usertype == null ? null : usertype.trim();
     }
 }

@@ -13,6 +13,9 @@
         <if test="userType!=null">
             and userType = #{userType}
         </if>
+        <if test="menuId!=null">
+            and menuId = #{menuId}
+        </if>
     </select>
 
 </mapper>
