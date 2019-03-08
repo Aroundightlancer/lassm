@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface UserDao {
 	//User check(@Param("name") String name,@Param("pwd") String pwd);
 	 //User getSingleUser(@Param("name") String name);
-	 List<User> getAllUser();
+	 List<User> getAllUser(Integer index);
 	 User checkLogin(@Param("name") String name, @Param("pwd") String pwd);
 	 Integer insertUser(@Param("name") String name, @Param("pwd") String pwd);
 	 User getUser(@Param("id") Integer id);
 	 Integer upUser(User user);
 	 User selectByname(String username);
+	 public int pagecount();
 }

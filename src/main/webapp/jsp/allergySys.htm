@@ -24,7 +24,7 @@
                 </div> -->
                 <!-- /.card-header -->
                 <!-- 要增删改查 -->
-                <div class="card-body p-0">
+                <div id="allergysys" class="card-body p-0">
                   <table class="table table-striped">
                     <tr>
                       <th style="width: 10px">#</th>
@@ -34,25 +34,17 @@
                       <th>抢救手段</th>
                       <th>措施</th>
                     </tr>
-                    <tr>
-                      <td>1.</td>
-                      <td name=""></td>
-                      <td name=""></td>
-                      <td name=""></td>
-                      <td name="">
-                      </td>
-                      <td name=""></td>
-                    </tr>
+                    
                    
                   </table>
-                  <div class="card-footer clearfix">
-                        <ul class="pagination pagination-sm m-0 float-right">
+                  <div id="page" class="card-footer clearfix">
+                        <!-- <ul class="pagination pagination-sm m-0 float-right">
                           <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
                           <li class="page-item"><a class="page-link" href="#">1</a></li>
                           <li class="page-item"><a class="page-link" href="#">2</a></li>
                           <li class="page-item"><a class="page-link" href="#">3</a></li>
                           <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                        </ul>
+                        </ul> -->
                       </div>
                 </div>
                 <!-- /.card-body -->
@@ -72,5 +64,33 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="../js/page.js"></script>
+<script>
+  function fenye(url,pageIndex)
+  {
+    var k=0;
+    $.ajax({
+    url:url,
+    type:"post",
+    datatype:"json",
+    data:{
+          "pageIndex":pageIndex
+          },
+    success:function(data){
+      var html="<tr>";
+      html+="<td>"+(k++)+"</td>";
+      html+="<td>"+"</td>";
+      html+="<td>"+"</td>";
+      html+="<td>"+"</td>";
+      html+="<td>"+"</td>";
+      html+="<td>"+"</td>";
+      html+="</tr>";
+      $("#allergysys table").append(html);
+      page(url,pageIndex);
+   
+  }})
+  }
+  
+</script>
 </body>
 </html>

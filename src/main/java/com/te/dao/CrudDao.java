@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 public interface CrudDao<T> extends BaseDao {
 
+   
+
     /**
      * 获取单条数据
      *

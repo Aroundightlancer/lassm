@@ -18,6 +18,10 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+  <div>
+    <label>时间：</label>
+    <input  type="text" placeholder="时间" aria-label="time">
+  </div>
         <div class="card">
                 <!-- <div class="card-header">
                   <h3 class="card-title">Striped Full Width Table</h3>
@@ -43,6 +47,8 @@
                    
                   </table>
                 </div>
+                <div id="page" class="card-footer clearfix">
+                </div>
                 <!-- /.card-body -->
               </div>
 </div>
@@ -60,5 +66,33 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="../js/page.js"></script>
+<script>
+  function fenye(url,pageIndex)
+  {
+    var k=0;
+    $.ajax({
+    url:url,
+    type:"post",
+    datatype:"json",
+    data:{
+          "pageIndex":pageIndex
+          },
+    success:function(data){
+      var html="<tr>";
+      html+="<td>"+(k++)+"</td>";
+      html+="<td>"+"</td>";
+      html+="<td>"+"</td>";
+      html+="<td>"+"</td>";
+      html+="<td>"+"</td>";
+      html+="<td>"+"</td>";
+      html+="</tr>";
+      $("#allergysys table").append(html);
+      page(url,pageIndex);
+   
+  }})
+  }
+  
+</script>
 </body>
 </html>

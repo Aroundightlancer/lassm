@@ -14,9 +14,12 @@ public  class UserServicelmpl implements UserService{
 		@Autowired
 		private UserDao userDao;
 		private static final Logger logger = Logger.getLogger(UserServicelmpl.class);
-		
-		public List<User> getAllUser(){
-			return userDao.getAllUser();
+		public int pagecount()
+		{
+			return userDao.pagecount();
+		}
+		public List<User> getAllUser(int index){
+			return userDao.getAllUser(index);
 		}
 
 		 public User checkLogin(@Param("name") String name, @Param("pwd") String pwd){
