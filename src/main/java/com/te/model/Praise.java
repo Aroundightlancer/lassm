@@ -2,34 +2,31 @@ package com.te.model;
 
 public class Praise extends Entity {
 
-    private String username;
+    private String userId;
+    private String userName;
+    private Integer friendCycleArticleId;
 
-    private Integer pyqid;
-
-    private String msg;
-
-   
-    public String getUsername() {
-        return username;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Integer getPyqid() {
-        return pyqid;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setPyqid(Integer pyqid) {
-        this.pyqid = pyqid;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getMsg() {
-        return msg;
+    public Integer getFriendCycleArticleId() {
+        return friendCycleArticleId;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg == null ? null : msg.trim();
+    public void setFriendCycleArticleId(Integer friendCycleArticleId) {
+        this.friendCycleArticleId = friendCycleArticleId;
     }
 }

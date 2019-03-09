@@ -1,17 +1,13 @@
 package com.te.model;
 
 public class Old extends Entity {
+
     private String name;
-
     private String birthday;
-
     private String age;
-
     private String sex;
-
-    private String msg;
-
-    private String img;
+    private String introduction;
+    private String imgUrl;
 
     public String getName() {
         return name;
@@ -45,19 +41,19 @@ public class Old extends Entity {
         this.sex = sex == null ? null : sex.trim();
     }
 
-    public String getMsg() {
-        return msg;
+    public String getIntroduction() {
+        return introduction;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg == null ? null : msg.trim();
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
-    public String getImg() {
-        return img;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setImg(String img) {
-        this.img = img == null ? null : img.trim();
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

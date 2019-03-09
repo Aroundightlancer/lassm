@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 @Controller
 @RequestMapping(value = "/User")
-public class UserController {
+public class UserController extends ApplicationController {
 	@Autowired
     private UserService userService;
     private static final Logger logger = Logger.getLogger(UserController.class);

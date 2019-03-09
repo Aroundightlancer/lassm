@@ -1,76 +1,75 @@
 package com.te.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Illness  extends Entity{
-    private Integer oldid;
 
-    private String oldname;
+    private Integer oldId;
+    private String oldName;
+    private String illnessName;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date illDate;
+    private String drugName;
+    private Integer normalflag;
+    private String treatment;
 
-    private String illnessname;
-
-    private Date date;
-
-    private String medi;
-
-    private String isok;
-
-    private String method;
-
-  
-    public Integer getOldid() {
-        return oldid;
+    public Integer getOldId() {
+        return oldId;
     }
 
-    public void setOldid(Integer oldid) {
-        this.oldid = oldid;
+    public void setOldId(Integer oldId) {
+        this.oldId = oldId;
     }
 
-    public String getOldname() {
-        return oldname;
+    public String getOldName() {
+        return oldName;
     }
 
-    public void setOldname(String oldname) {
-        this.oldname = oldname == null ? null : oldname.trim();
+    public void setOldName(String oldName) {
+        this.oldName = oldName;
     }
 
-    public String getIllnessname() {
-        return illnessname;
+    public String getIllnessName() {
+        return illnessName;
     }
 
-    public void setIllnessname(String illnessname) {
-        this.illnessname = illnessname == null ? null : illnessname.trim();
+    public void setIllnessName(String illnessName) {
+        this.illnessName = illnessName;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getIllDate() {
+        return illDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setIllDate(Date illDate) {
+        this.illDate = illDate;
     }
 
-    public String getMedi() {
-        return medi;
+    public String getDrugName() {
+        return drugName;
     }
 
-    public void setMedi(String medi) {
-        this.medi = medi == null ? null : medi.trim();
+    public void setDrugName(String drugName) {
+        this.drugName = drugName;
     }
 
-    public String getIsok() {
-        return isok;
+    public Integer getNormalflag() {
+        return normalflag;
     }
 
-    public void setIsok(String isok) {
-        this.isok = isok == null ? null : isok.trim();
+    public void setNormalflag(Integer normalflag) {
+        this.normalflag = normalflag;
     }
 
-    public String getMethod() {
-        return method;
+    public String getTreatment() {
+        return treatment;
     }
 
-    public void setMethod(String method) {
-        this.method = method == null ? null : method.trim();
+    public void setTreatment(String treatment) {
+        this.treatment = treatment;
     }
 }
