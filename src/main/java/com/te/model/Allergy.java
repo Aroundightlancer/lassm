@@ -1,14 +1,11 @@
 package com.te.model;
 
 public class Allergy  extends Entity {
+
     private String name;
-
     private String degree;
-
     private String reaction;
-
     private String measures;
-
     private Integer oldId;
 
     public String getName() {
@@ -16,7 +13,7 @@ public class Allergy  extends Entity {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getDegree() {
@@ -24,7 +21,7 @@ public class Allergy  extends Entity {
     }
 
     public void setDegree(String degree) {
-        this.degree = degree == null ? null : degree.trim();
+        this.degree = degree;
     }
 
     public String getReaction() {
@@ -32,7 +29,7 @@ public class Allergy  extends Entity {
     }
 
     public void setReaction(String reaction) {
-        this.reaction = reaction == null ? null : reaction.trim();
+        this.reaction = reaction;
     }
 
     public String getMeasures() {
@@ -40,7 +37,7 @@ public class Allergy  extends Entity {
     }
 
     public void setMeasures(String measures) {
-        this.measures = measures == null ? null : measures.trim();
+        this.measures = measures;
     }
 
     public Integer getOldId() {

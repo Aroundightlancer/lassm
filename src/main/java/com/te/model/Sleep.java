@@ -3,15 +3,12 @@ package com.te.model;
 import java.util.Date;
 
 public class Sleep extends Entity {
+
     private Integer oldId;
-
-    private String shutime;
-
-    private String ise;
-
-    private String fen;
-
-    private String isok;
+    private String sleepTime;
+    private String nightmaresflag;
+    private String grade;
+    private String normalflag;
 
     public Integer getOldId() {
         return oldId;
@@ -21,35 +18,35 @@ public class Sleep extends Entity {
         this.oldId = oldId;
     }
 
-    public String getShutime() {
-        return shutime;
+    public String getSleepTime() {
+        return sleepTime;
     }
 
-    public void setShutime(String shutime) {
-        this.shutime = shutime == null ? null : shutime.trim();
+    public void setSleepTime(String sleepTime) {
+        this.sleepTime = sleepTime;
     }
 
-    public String getIse() {
-        return ise;
+    public String getNightmaresflag() {
+        return nightmaresflag;
     }
 
-    public void setIse(String ise) {
-        this.ise = ise == null ? null : ise.trim();
+    public void setNightmaresflag(String nightmaresflag) {
+        this.nightmaresflag = nightmaresflag;
     }
 
-    public String getFen() {
-        return fen;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setFen(String fen) {
-        this.fen = fen == null ? null : fen.trim();
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
-    public String getIsok() {
-        return isok;
+    public String getNormalflag() {
+        return normalflag;
     }
 
-    public void setIsok(String isok) {
-        this.isok = isok == null ? null : isok.trim();
+    public void setNormalflag(String normalflag) {
+        this.normalflag = normalflag;
     }
 }

@@ -13,9 +13,6 @@
     <include refid="a" />
     FROM user limit #{index},10;
 </select>
-<select id="pagecount" result="int">
-	SELECT COUNT(*) FROM user;
-	</select>
 <select id="checkLogin" resultMap="get-user-list">
 	SELECT
 	<include refid="a" />

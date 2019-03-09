@@ -8,14 +8,17 @@ public class Menu extends Entity {
     private String url;   //跳转路径的url
     private Integer userType; //1子女，2亲属，3朋友
     private Integer menuId; //页面的id号
+
     public Integer getMenuId()
     {
         return menuId;
     }
+
     public void setMenuId(Integer menuId)
     {
         this.menuId=menuId;
     }
+
     public Integer getParentId() {
         return parentId;
     }

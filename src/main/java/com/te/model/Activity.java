@@ -1,44 +1,48 @@
 package com.te.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Activity  extends Entity {
-    private Integer oldid;
 
-    private String oldname;
+    private Integer oldId;
+    private String oldName;
+    private String activityName;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date activityDate;
 
-    private String activity;
-
-    private Date date;
-    public Integer getOldid() {
-        return oldid;
+    public Integer getOldId() {
+        return oldId;
     }
 
-    public void setOldid(Integer oldid) {
-        this.oldid = oldid;
+    public void setOldId(Integer oldId) {
+        this.oldId = oldId;
     }
 
-    public String getOldname() {
-        return oldname;
+    public String getOldName() {
+        return oldName;
     }
 
-    public void setOldname(String oldname) {
-        this.oldname = oldname == null ? null : oldname.trim();
+    public void setOldName(String oldName) {
+        this.oldName = oldName;
     }
 
-    public String getActivity() {
-        return activity;
+    public String getActivityName() {
+        return activityName;
     }
 
-    public void setActivity(String activity) {
-        this.activity = activity == null ? null : activity.trim();
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getActivityDate() {
+        return activityDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setActivityDate(Date activityDate) {
+        this.activityDate = activityDate;
     }
 }

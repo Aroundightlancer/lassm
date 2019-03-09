@@ -1,16 +1,12 @@
 package com.te.model;
 
 public class Food  extends Entity {
+
     private String oldId;
-
-    private String oldname;
-
+    private String oldName;
     private String breakfast;
-
     private String lunch;
-
     private String dinner;
-
     private String cloth;
 
     public String getOldId() {
@@ -18,15 +14,15 @@ public class Food  extends Entity {
     }
 
     public void setOldId(String oldId) {
-        this.oldId = oldId == null ? null : oldId.trim();
+        this.oldId = oldId;
     }
 
-    public String getOldname() {
-        return oldname;
+    public String getOldName() {
+        return oldName;
     }
 
-    public void setOldname(String oldname) {
-        this.oldname = oldname == null ? null : oldname.trim();
+    public void setOldName(String oldName) {
+        this.oldName = oldName;
     }
 
     public String getBreakfast() {
@@ -34,7 +30,7 @@ public class Food  extends Entity {
     }
 
     public void setBreakfast(String breakfast) {
-        this.breakfast = breakfast == null ? null : breakfast.trim();
+        this.breakfast = breakfast;
     }
 
     public String getLunch() {
@@ -42,7 +38,7 @@ public class Food  extends Entity {
     }
 
     public void setLunch(String lunch) {
-        this.lunch = lunch == null ? null : lunch.trim();
+        this.lunch = lunch;
     }
 
     public String getDinner() {
@@ -50,7 +46,7 @@ public class Food  extends Entity {
     }
 
     public void setDinner(String dinner) {
-        this.dinner = dinner == null ? null : dinner.trim();
+        this.dinner = dinner;
     }
 
     public String getCloth() {
@@ -58,6 +54,6 @@ public class Food  extends Entity {
     }
 
     public void setCloth(String cloth) {
-        this.cloth = cloth == null ? null : cloth.trim();
+        this.cloth = cloth;
     }
 }

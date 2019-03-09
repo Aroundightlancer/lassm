@@ -3,17 +3,12 @@ package com.te.model;
 import java.util.Date;
 
 public class Medicine extends Entity {
+
     private Integer oldId;
-
-    private String oldname;
-
-    private String medicinename;
-
-    private Integer num;
-
-    private Integer result;
-
-    private String is;
+    private String oldName;
+    private String medicineName;
+    private Integer dosage;
+    private Integer useReason;
 
     public Integer getOldId() {
         return oldId;
@@ -23,43 +18,35 @@ public class Medicine extends Entity {
         this.oldId = oldId;
     }
 
-    public String getOldname() {
-        return oldname;
+    public String getOldName() {
+        return oldName;
     }
 
-    public void setOldname(String oldname) {
-        this.oldname = oldname == null ? null : oldname.trim();
+    public void setOldName(String oldName) {
+        this.oldName = oldName;
     }
 
-    public String getMedicinename() {
-        return medicinename;
+    public String getMedicineName() {
+        return medicineName;
     }
 
-    public void setMedicinename(String medicinename) {
-        this.medicinename = medicinename == null ? null : medicinename.trim();
+    public void setMedicineName(String medicineName) {
+        this.medicineName = medicineName;
     }
 
-    public Integer getNum() {
-        return num;
+    public Integer getDosage() {
+        return dosage;
     }
 
-    public void setNum(Integer num) {
-        this.num = num;
+    public void setDosage(Integer dosage) {
+        this.dosage = dosage;
     }
 
-    public Integer getResult() {
-        return result;
+    public Integer getUseReason() {
+        return useReason;
     }
 
-    public void setResult(Integer result) {
-        this.result = result;
-    }
-    
-    public String getIs() {
-        return is;
-    }
-
-    public void setIs(String is) {
-        this.is = is == null ? null : is.trim();
+    public void setUseReason(Integer useReason) {
+        this.useReason = useReason;
     }
 }

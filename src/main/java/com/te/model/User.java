@@ -2,33 +2,31 @@ package com.te.model;
 
 public class User extends Entity {
  
-    private String name;
+    private String username;
+    private String password;
+    private String imgUrl;
 
-    private String pwd;
-
-    private String img;
-
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd == null ? null : pwd.trim();
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getImg() {
-        return img;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setImg(String img) {
-        this.img = img == null ? null : img.trim();
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

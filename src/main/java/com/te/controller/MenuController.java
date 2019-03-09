@@ -16,7 +16,7 @@ import com.te.service.UserService;
 
 @Controller
 @RequestMapping(value = "/menu")
-public class MenuController {
+public class MenuController extends ApplicationController {
 	@Autowired
     private MenuService menuService;
 
