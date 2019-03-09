@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.te.dao.MenuDao">
-
+<resultMap id="BaseResultMap" type="com.te.model.Menu">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="userType" jdbcType="VARCHAR" property="usertype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, parent_id, name, icon, url, menu_id, userType
+  </sql>
     <select id="getChild" resultType="com.te.model.Menu">
-  		select
-  		id, parentId, name, icon, url, userType
-  		from menu
-  		where status = 1
+  		select  <include refid="Base_Column_List" /> form menu
+  		where
   		<if test="parentId!=null">
             and parentId = #{parentId}
         </if>
