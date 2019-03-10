@@ -3,6 +3,8 @@ package com.te.controller;
 import java.util.List;
 
 import com.te.model.result.ApiResult;
+
+import org.apache.ibatis.annotations.Param;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,9 +24,9 @@ public class MenuController extends ApplicationController {
 
     private static final Logger logger = Logger.getLogger(MenuController.class);
 
-    @RequestMapping(value = "/getChild")
+    @RequestMapping(value = "/getChild") 
     @ResponseBody
-    public ApiResult getchild(@RequestParam(value = "parentId") Integer parentId, @RequestParam(value = "userType") Integer userType)
+    public ApiResult getchild(Integer parentId,Integer userType)
     {
         ApiResult apiResult = menuService.getChild(parentId, userType);
     	return apiResult;

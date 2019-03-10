@@ -15,16 +15,7 @@
   </sql>
     <select id="getChild" resultType="com.te.model.Menu">
   		select  <include refid="Base_Column_List" /> form menu
-  		where
-  		<if test="parentId!=null">
-            and parentId = #{parentId}
-        </if>
-        <if test="userType!=null">
-            and userType = #{userType}
-        </if>
-        <!-- <if test="menuId!=null">
-            and menuId = #{menuId}
-        </if> -->
+  		where  parentId = #{parentId}  and userType = #{userType}
     </select>
 
 </mapper>

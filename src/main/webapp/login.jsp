@@ -39,11 +39,11 @@
 
             <form action="User/CheckLogin" method="post">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="用户名">
+                    <input name="name" type="text" class="form-control" placeholder="用户名">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="密码">
+                    <input name="pwd" type="password" class="form-control" placeholder="密码">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">

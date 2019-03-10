@@ -22,18 +22,20 @@ public class UserController extends ApplicationController {
     private UserService userService;
     private static final Logger logger = Logger.getLogger(UserController.class);
     @RequestMapping(value = "/CheckLogin")
-    private String checkLogin(String username, String password, RedirectAttributesModelMap modelMap, HttpServletRequest request) {
-        logger.info("--" + username);
-        logger.info("00" + password);
-        User user = userService.checkLogin(username,password);
-        if (user != null) {
-            request.getSession().setAttribute("user", user);
+    private String checkLogin(String name, String pwd, RedirectAttributesModelMap modelMap, HttpServletRequest request) {
+        logger.info("--" + name);
+        logger.info("00" + pwd);
+     //   User user = userService.checkLogin(name,pwd);
+       // if (user!=null )
+       // {
+            //request.getSession().setAttribute("user", user);
             return "index";
-        }
-        else {
-            modelMap.addFlashAttribute("flag", ProcessResultEnum.RETURN_RESULT_FAILED);
-            return "../index";
-        }
+      //  }
+//        else
+//        {
+//            modelMap.addFlashAttribute("flag", ProcessResultEnum.RETURN_RESULT_FAILED);
+//            return "../index";
+//        }
         
     }
 }

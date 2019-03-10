@@ -225,25 +225,25 @@
         $(document).on('click', '.nav-link',function(e) {
             
           //  e.preventDefault();
-            //ifå¤æ­è¯¥aæ ç­¾æ¯å¦å·²ç»è¢«ç¹å»
-            //å¦ææ²¡ææ§è¡ä¸é¢æä½
+            //ifÃ¥ÂÂ¤Ã¦ÂÂ­Ã¨Â¯Â¥aÃ¦Â ÂÃ§Â­Â¾Ã¦ÂÂ¯Ã¥ÂÂ¦Ã¥Â·Â²Ã§Â»ÂÃ¨Â¢Â«Ã§ÂÂ¹Ã¥ÂÂ»
+            //Ã¥Â¦ÂÃ¦ÂÂÃ¦Â²Â¡Ã¦ÂÂÃ¦ÂÂ§Ã¨Â¡ÂÃ¤Â¸ÂÃ©ÂÂ¢Ã¦ÂÂÃ¤Â½Â
             if (!$(this).is(".active")) {
-                // éåè¿ä¸ä¸ªaæ ç­¾ï¼ç§»é¤åæ¥çclassä¸­çactiveï¼
+                // Ã©ÂÂÃ¥ÂÂÃ¨Â¿ÂÃ¤Â¸ÂÃ¤Â¸ÂªaÃ¦Â ÂÃ§Â­Â¾Ã¯Â¼ÂÃ§Â§Â»Ã©ÂÂ¤Ã¥ÂÂÃ¦ÂÂ¥Ã§ÂÂclassÃ¤Â¸Â­Ã§ÂÂactiveÃ¯Â¼Â
                 $("#mt-2 a").each(function () {
                     $(this).removeClass("active");
                 })
-                // ç»å½åè¢«ç¹å»çaæ ç­¾ï¼æ·»å active
+                // Ã§Â»ÂÃ¥Â½ÂÃ¥ÂÂÃ¨Â¢Â«Ã§ÂÂ¹Ã¥ÂÂ»Ã§ÂÂaÃ¦Â ÂÃ§Â­Â¾Ã¯Â¼ÂÃ¦Â·Â»Ã¥ÂÂ active
                 $(this).addClass("active");
                 if($(this.parentNode)!=null){
                 $(this.parentNode).addClass("active");}
-                var url = this.href;//aæ ç­¾ä¸çé¾æ¥
-                if (url != "javascript:void(0)")//æ¯å¶å­
+                var url = this.href;//aÃ¦Â ÂÃ§Â­Â¾Ã¤Â¸ÂÃ§ÂÂÃ©ÂÂ¾Ã¦ÂÂ¥
+                if (url != "javascript:void(0)")//Ã¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
                 {
                     $("#main").html = "";
                     $("#main").load(url);
                     return false;
                 }
-                else if(this.parentNode.children.length>1)//不是第一次点击
+                else if(this.parentNode.children.length>1)//ä¸æ¯ç¬¬ä¸æ¬¡ç¹å»
                 {
                     return;
                 }
@@ -254,20 +254,21 @@
                     var a="";
                     var p="";
                     var i1="";
-                    var menuid=1;
-                    var userType="";
-                    var parentId=this.name;//ç¹å»çé¡¹çnameå±æ§
+                     menuid=1;
+                     userType=0;
+                    var parentId=this.name;//Ã§ÂÂ¹Ã¥ÂÂ»Ã§ÂÂÃ©Â¡Â¹Ã§ÂÂnameÃ¥Â±ÂÃ¦ÂÂ§
                     $.ajax({
                         type: 'POST',
                         url: '/lassm/menu/getChild',
-                        dataType: 'json',
                         data: {
-                        	parentId: parentId,
-                            userType:userType
+                        	parentId : parentId,
+                        	userType : userType,
                         },
+                        dataType: 'json',
+                        
                         async: false,
-                        contentType: false,//å¿é¡»æ
-                        processData: false,//å¿é¡»æ
+                        contentType: false,//Ã¥Â¿ÂÃ©Â¡Â»Ã¦ÂÂ
+                        processData: false,//Ã¥Â¿ÂÃ©Â¡Â»Ã¦ÂÂ
                         success: function (data) {
                             for (i = 0; i < data.length; i++)
                             {
@@ -275,7 +276,7 @@
                                 a += "<a href=\"" +data[i].url + "\" " + " class=\"nav-link\""+ " name=\"" + data[i].id +"\">";
                                 i += "<i class=\"nav-icon " + "fa fa-dashboard\"" + " ></i>";
                                 p += "<p>" + data[i].name ;
-                                if (data[i].url == 'javascript:void(0)')//ä¸æ¯å¶å­
+                                if (data[i].url == 'javascript:void(0)')//Ã¤Â¸ÂÃ¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
                                     {
                                         li += "has-treeview \"";
                                         i1+="<i class=\"right fa fa-angle-left\"></i>";
@@ -312,23 +313,24 @@
 
         $.ajax({
             type: 'POST',
-            url: '/lassm/menu/getChild',
-            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            url: '${pageContext.request.contextPath}/menu/getChild',
             data: {
-                parentId: parentId,
+            	"parentId" : parentId,
             //    menuid:menuid,
-                userType:userType
+            	"userType" : userType
             },
-            async: false,
-            contentType: false,//å¿é¡»æ
-            processData: false,//å¿é¡»æ
+            dataType: 'json',
+            async:false,
+            contentType:false,//必须有
+            processData:false,//必须有
             success: function (data) {
                for (i = 0; i < data.length; i++) {
                     li += "<li class=\"nav-item ";
                     a += "<a hrefs=\"" + data[i].url + "\" " + " class=\"nav-link\""+ " name=\"" + data[i].id +"\">";
                     i += "<i class=\"nav-icon " + "fa fa-dashboard\" ></i>";
                     p += "<p>" + data[i].name ;
-                    if (data[i].url == 'javascript:void(0)')//ä¸æ¯å¶å­
+                    if (data[i].url == 'javascript:void(0)')//Ã¤Â¸ÂÃ¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
                     {
                         li += "has-treeview \"";
                         i1+="<i class=\"right fa fa-angle-left\"></i>";
