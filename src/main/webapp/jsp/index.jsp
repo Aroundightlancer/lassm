@@ -39,7 +39,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                <a class="nav-link" data-widget="pushmenu" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="index3.html" class="nav-link">Home</a>
@@ -236,11 +236,15 @@
                 $(this).addClass("active");
                 if($(this.parentNode)!=null){
                 $(this.parentNode).addClass("active");}
-                var url = this.href;//aÃ¦Â ÂÃ§Â­Â¾Ã¤Â¸ÂÃ§ÂÂÃ©ÂÂ¾Ã¦ÂÂ¥
+               
+                var url =$(this).attr("href");//aÃ¦Â ÂÃ§Â­Â¾Ã¤Â¸ÂÃ§ÂÂÃ©ÂÂ¾Ã¦ÂÂ¥
+                var html="";
+                var t=this;
                 if (url != "javascript:void(0)")//Ã¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
                 {
+                	u="<"+"%="+ "path"+ "%>/jsp/" + url;
                     $("#main").html = "";
-                    $("#main").load(url);
+                    $("#main").load(u);
                     return false;
                 }
                 else if(this.parentNode.children.length>1)//ä¸æ¯ç¬¬ä¸æ¬¡ç¹å»
@@ -249,34 +253,36 @@
                 }
                 else {
                     var ul=" <ul class=\"nav nav-treeview\">";
+                    html=ul;
                     var li="";
                     var i="";
                     var a="";
                     var p="";
                     var i1="";
-                     menuid=1;
-                     userType=0;
+                    var menuid=1;
+                    var userType=0;
                     var parentId=this.name;//Ã§ÂÂ¹Ã¥ÂÂ»Ã§ÂÂÃ©Â¡Â¹Ã§ÂÂnameÃ¥Â±ÂÃ¦ÂÂ§
                     $.ajax({
                         type: 'POST',
-                        url: '/lassm/menu/getChild',
+                        url: '${pageContext.request.contextPath}/menu/getChild',
                         data: {
                         	parentId : parentId,
                         	userType : userType,
                         },
                         dataType: 'json',
-                        
-                        async: false,
-                        contentType: false,//Ã¥Â¿ÂÃ©Â¡Â»Ã¦ÂÂ
-                        processData: false,//Ã¥Â¿ÂÃ©Â¡Â»Ã¦ÂÂ
                         success: function (data) {
-                            for (i = 0; i < data.length; i++)
+                            for (j = 0; j < data.data.length; j++)
                             {
+                       	  		li = "";
+                                a = "";
+                                i = "";
+                                p = "";
+                                i1="";
                                 li += "<li class=\"nav-item ";
-                                a += "<a href=\"" +data[i].url + "\" " + " class=\"nav-link\""+ " name=\"" + data[i].id +"\">";
-                                i += "<i class=\"nav-icon " + "fa fa-dashboard\"" + " ></i>";
-                                p += "<p>" + data[i].name ;
-                                if (data[i].url == 'javascript:void(0)')//Ã¤Â¸ÂÃ¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
+                                a += "<a href=\"" +data.data[j].url + "\" " + " class=\"nav-link\""+ " name=\"" + data.data[j].id +"\">";
+                                i += "<i class=\"nav-icon " + data.data[j].icon + "\"" + " ></i>";
+                                p += "<p>" + data.data[j].name ;
+                                if (data.data[j].url == 'javascript:void(0)')//Ã¤Â¸ÂÃ¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
                                     {
                                         li += "has-treeview \"";
                                         i1+="<i class=\"right fa fa-angle-left\"></i>";
@@ -287,15 +293,17 @@
                                     }
                                             
                                 li +=">";
+                                html += li + a + i + p +i1 + "</p></a></li>";
+
                             }
-                            var html =ul+ li + a + i + p +i1 + "</p></a></li></ul>";
-                         
-                            var c = this.parentNode;
+                            html+="</ul>";
+                            var c=t.parentNode;
                             $(c).append(html);
+                           // var html =ul+ li + a + i + p +i1 + "</p></a></li></ul>";
+                        } })
+          //  var c = this.parentNode;
+            //        $(c).append(html);
 
-                        }
-
-            })
                 }
             }
             })
@@ -310,46 +318,39 @@
         var menuid=1;
         var userType=0;
         var i1="";
-
         $.ajax({
-            type: 'POST',
-            contentType: "application/json; charset=utf-8",
-            url: '${pageContext.request.contextPath}/menu/getChild',
-            data: {
-            	"parentId" : parentId,
-            //    menuid:menuid,
-            	"userType" : userType
-            },
-            dataType: 'json',
-            async:false,
-            contentType:false,//必须有
-            processData:false,//必须有
-            success: function (data) {
-               for (i = 0; i < data.length; i++) {
-                    li += "<li class=\"nav-item ";
-                    a += "<a hrefs=\"" + data[i].url + "\" " + " class=\"nav-link\""+ " name=\"" + data[i].id +"\">";
-                    i += "<i class=\"nav-icon " + "fa fa-dashboard\" ></i>";
-                    p += "<p>" + data[i].name ;
-                    if (data[i].url == 'javascript:void(0)')//Ã¤Â¸ÂÃ¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
-                    {
-                        li += "has-treeview \"";
-                        i1+="<i class=\"right fa fa-angle-left\"></i>";
-                    }
-                    else
-                    {
-                        li+="\"";
-                    }
-                    li +=">";  
-                    html += li + a + i + p +i1+ "</p>"+ "</a></li>";
-                    li = "";
-                    a = "";
-                    i = "";
-                    p = "";
-                    i1="";
+        	 type: 'POST',
+             url: '${pageContext.request.contextPath}/menu/getChild',
+             data: {
+					parentId : parentId,
+					userType : userType,
+					},
+			dataType: 'json',
+			success: function (data) {
+               for (j = 0; j < data.data.length; j++) {
+            	   li = "";
+                   a = "";
+                   i = "";
+                   p = "";
+                   i1="";
+                   li += "<li class=\"nav-item ";
+                   a += "<a href=\"" + data.data[j].url + "\" " + " class=\"nav-link\""+ " name=\"" + data.data[j].id +"\">";
+                   i += "<i class=\"nav-icon " + data.data[j].icon + "\" ></i>";
+                   p += "<p>" + data.data[j].name;
+                   if (data.data[j].url == 'javascript:void(0)')//Ã¤Â¸ÂÃ¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
+                   {
+                       li += "has-treeview \"";
+                       i1+="<i class=\"right fa fa-angle-left\"></i>";
+                   }
+                   else
+                   {
+                       li+="\"";
+                   }
+                   li +=">";  
+                   html += li + a + i + p +i1+ "</p>"+ "</a></li>";
+                 
 
-                }
-                html+=li + a + i + p +i1+ "</p>"+ "</a></li>";
-            
+                }            
 
                 $("#mt-2 ul").append(html);
                 // $("#main").html = "";
