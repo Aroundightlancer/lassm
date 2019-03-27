@@ -14,7 +14,7 @@ public class Illness  extends Entity{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date illDate;
     private String drugName;
-    private Integer normalflag;
+    private String description;
     private String treatment;
 
     public Integer getOldId() {
@@ -57,14 +57,6 @@ public class Illness  extends Entity{
         this.drugName = drugName;
     }
 
-    public Integer getNormalflag() {
-        return normalflag;
-    }
-
-    public void setNormalflag(Integer normalflag) {
-        this.normalflag = normalflag;
-    }
-
     public String getTreatment() {
         return treatment;
     }
@@ -72,4 +64,12 @@ public class Illness  extends Entity{
     public void setTreatment(String treatment) {
         this.treatment = treatment;
     }
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.te.dao.MedicineDao" >
+  <resultMap id="BaseResultMap" type="com.te.model.Medicine" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="old_id" property="oldId" jdbcType="INTEGER" />
+    <result column="old_name" property="oldName" jdbcType="VARCHAR" />
+    <result column="medicine_name" property="medicineName" jdbcType="VARCHAR" />
+    <result column="dosage" property="dosage" jdbcType="INTEGER" />
+    <result column="use_reason" property="useReason" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="DATE" />
+  </resultMap>
+ 
+  <sql id="Base_Column_List" >
+    id, old_id, old_name, medicine_name, dosage, use_reason, createtime
+  </sql>
+ 
+</mapper>

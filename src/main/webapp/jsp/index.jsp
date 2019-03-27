@@ -242,9 +242,12 @@
                 var t=this;
                 if (url != "javascript:void(0)")//Ã¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
                 {
-                	u="<"+"%="+ "path"+ "%>/jsp/" + url;
+                	u="User/load";
+                	//u="<"+"%="+ "path"+ "%>/jsp/" + url;
                     $("#main").html = "";
-                    $("#main").load(u);
+                    $("#main").load(u,{
+                    	url:url
+                    });
                     return false;
                 }
                 else if(this.parentNode.children.length>1)//ä¸æ¯ç¬¬ä¸æ¬¡ç¹å»

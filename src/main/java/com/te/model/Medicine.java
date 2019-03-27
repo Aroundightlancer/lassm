@@ -8,7 +8,7 @@ public class Medicine extends Entity {
     private String oldName;
     private String medicineName;
     private Integer dosage;
-    private Integer useReason;
+    private String useReason;
 
     public Integer getOldId() {
         return oldId;
@@ -42,11 +42,11 @@ public class Medicine extends Entity {
         this.dosage = dosage;
     }
 
-    public Integer getUseReason() {
+    public String getUseReason() {
         return useReason;
     }
 
-    public void setUseReason(Integer useReason) {
+    public void setUseReason(String useReason) {
         this.useReason = useReason;
     }
 }
