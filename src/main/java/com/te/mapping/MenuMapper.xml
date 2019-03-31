@@ -8,14 +8,14 @@
     <result column="icon" jdbcType="VARCHAR" property="icon" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="menu_id" jdbcType="INTEGER" property="menuId" />
-    <result column="userType" jdbcType="INTEGER" property="usertype" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, parent_id, name, icon, url, menu_id, userType
+    id, parent_id, name, icon, url, menu_id, user_type
   </sql>
     <select id="getChild" resultType="com.te.model.Menu">
   		select <include refid="Base_Column_List" /> from menu
-  		where parent_id = #{parentId}  and userType = #{userType}
+  		where parent_id = #{parentId}  and user_type = #{userType}
     </select>
 
 </mapper>

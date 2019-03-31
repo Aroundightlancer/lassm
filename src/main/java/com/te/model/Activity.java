@@ -12,7 +12,7 @@ public class Activity  extends Entity {
     private String activityName;
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date activityDate;
+    private Date date;
 
     public Integer getOldId() {
         return oldId;
@@ -39,10 +39,10 @@ public class Activity  extends Entity {
     }
 
     public Date getActivityDate() {
-        return activityDate;
+        return date;
     }
 
     public void setActivityDate(Date activityDate) {
-        this.activityDate = activityDate;
+        this.date = activityDate;
     }
 }

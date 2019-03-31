@@ -1,10 +1,11 @@
 package com.te.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 public interface CrudDao<T> extends BaseDao {
 
-   
+   public List<T> findAll();
 
     /**
      * 获取单条数据

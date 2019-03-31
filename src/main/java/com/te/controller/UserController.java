@@ -40,6 +40,7 @@ public class UserController extends ApplicationController {
     }
     @RequestMapping(value = "/load")
     public String load(String url) {
+    	System.out.println(url);
     	return url;
 		
 	}
