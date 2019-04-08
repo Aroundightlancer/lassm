@@ -13,5 +13,7 @@
   <sql id="Base_Column_List" >
     id, old_name, user_name, relationship, old_id, user_id
   </sql>
- 
+ <select id="getall" resultMap="BaseResultMap">
+ 	SELECT  <include refid="Base_Column_List" /> FROM olduser WHERE user_id=#{id}
+ </select>
 </mapper>

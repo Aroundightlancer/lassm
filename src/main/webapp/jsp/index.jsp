@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"  
     pageEncoding="utf-8"%>  
+       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -67,10 +68,10 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="${pageContext.request.contextPath}/jsp/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="${pageContext.request.contextPath}/images/${sessionScope.user.img}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">zxd</a>
+                    <a href="#" class="d-block">${sessionScope.user.name}</a>
                 </div>
             </div>
 
@@ -162,13 +163,14 @@
                 if (url != "javascript:void(0)")//Ã¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
                 {
                 	
-                	u="<%=request.getContextPath()%>/jsp/";
+                	u="<%=request.getContextPath()%>/";
                 	//u="<"+"%="+ "path"+ "%>/jsp/" + url;
                     $("#main").html = "";
                    u+=url;
-                   u+=".jsp"
+                   //u+=".jsp"
+                   var id="${sessionScope.user.id}";
                     $("#main").load(u,{
-                    	url:url
+                    	id:id
                     });
                     return false;
                 }
@@ -184,7 +186,7 @@
                     var a="";
                     var p="";
                     var i1="";
-                    var menuid=1;
+                    var menuId=1;
                     var userType=0;
                     var parentId=this.name;//Ã§ÂÂ¹Ã¥ÂÂ»Ã§ÂÂÃ©Â¡Â¹Ã§ÂÂnameÃ¥Â±ÂÃ¦ÂÂ§
                     $.ajax({
@@ -193,6 +195,7 @@
                         data: {
                         	parentId : parentId,
                         	userType : userType,
+                        	menuId : menuId
                         },
                         dataType: 'json',
                         success: function (data) {
@@ -245,7 +248,7 @@
         var p = "";
         var html = "";
         var parentId = 0;
-        var menuid=1;
+        var menuId=1;
         var userType=0;
         var i1="";
         $.ajax({
@@ -254,6 +257,7 @@
              data: {
 					parentId : parentId,
 					userType : userType,
+					menuId : menuId
 					},
 			dataType: 'json',
 			success: function (data) {

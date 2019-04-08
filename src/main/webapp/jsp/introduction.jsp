@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+<%@page import="com.te.model.Old"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"  
+    pageEncoding="utf-8"%>  
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+        
 <html>
+
+<%@ include file="include.jsp"%>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>老人近一周睡眠情况</title>
+  <title>养老院简介</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,35 +25,7 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-        <div class="card">
-                <!-- <div class="card-header">
-                  <h3 class="card-title">Striped Full Width Table</h3>
-                </div> -->
-                <!-- /.card-header -->
-                <div class="card-body p-0">
-                  <table class="table table-striped">
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>熟睡时间</th>
-                      <th>是否做噩梦</th>
-                      <th>睡眠质量评分</th>
-                      <th>测量时间</th>
-                      <th>是否正常</th>
-                    </tr>
-                    <tr>
-                      <td>1.</td>
-                      <td name=""></td>
-                      <td name=""></td>
-                      <td name=""></td>
-                      <td name="">
-                      </td>
-                      <td name=""></td>
-                    </tr>
-                   
-                  </table>
-                </div>
-                <!-- /.card-body -->
-              </div>
+     
 </div>
 <!-- ./wrapper -->
 

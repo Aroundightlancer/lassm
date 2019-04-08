@@ -14,5 +14,8 @@
   <sql id="Base_Column_List" >
     id, old_id, sleep_time, nightmaresflag, grade, createtime, normalflag
   </sql>
+  <select id="getAll"  resultMap="BaseResultMap">
+  		select <include refid="Base_Column_List" /> from sleep where old_id=#{oldId}
+  </select>
  
 </mapper>

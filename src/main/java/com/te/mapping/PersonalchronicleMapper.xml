@@ -15,5 +15,7 @@
   <sql id="Base_Column_List" >
     id, old_id, old_name, important_name, degree, treatment, normalflag, createtime
   </sql>
-  
+  <select id="getAll"  resultMap="BaseResultMap">
+  		select <include refid="Base_Column_List" /> from personalchronicle where old_id=#{oldId}
+  </select>
 </mapper>

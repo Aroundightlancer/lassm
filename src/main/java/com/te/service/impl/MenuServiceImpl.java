@@ -17,10 +17,10 @@ public class MenuServiceImpl implements MenuService{
 
 	private static final Logger logger = Logger.getLogger(MenuServiceImpl.class);
 
-	public ApiResult getChild(Integer parentId, Integer userType) {
+	public ApiResult getChild(Integer parentId, Integer userType,Integer menuId) {
 		ApiResult apiResult = new ApiResult();
 
-		List<Menu> list = menuDao.getChild(parentId, userType);
+		List<Menu> list = menuDao.getChild(parentId, userType,menuId);
 		if(list == null || list.size() <= 0) {
 			apiResult.noData();
 			return apiResult;

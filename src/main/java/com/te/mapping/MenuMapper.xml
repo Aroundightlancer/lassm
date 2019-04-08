@@ -13,9 +13,10 @@
   <sql id="Base_Column_List">
     id, parent_id, name, icon, url, menu_id, user_type
   </sql>
-    <select id="getChild" resultType="com.te.model.Menu">
+  <!--$lt;=指的是小于等于-->
+    <select id="getChild" resultMap="BaseResultMap">
   		select <include refid="Base_Column_List" /> from menu
-  		where parent_id = #{parentId}  and user_type = #{userType}
+  		where parent_id = #{parentId}  and user_type &lt;= #{userType} and menu_id=#{menuId}
     </select>
 
 </mapper>

@@ -27,9 +27,9 @@ public class MenuController extends ApplicationController {
 
     @RequestMapping(method = RequestMethod.POST,value = "/getChild") 
     @ResponseBody
-    public ApiResult getchild(@RequestParam("parentId") Integer parentId,@RequestParam("userType") Integer userType)
+    public ApiResult getchild(@RequestParam("parentId") Integer parentId,@RequestParam("userType") Integer userType,@RequestParam("menuId") Integer menuId)
     {
-        ApiResult apiResult = menuService.getChild(parentId, userType);
+        ApiResult apiResult = menuService.getChild(parentId, userType,menuId);
     	return apiResult;
     }
 }

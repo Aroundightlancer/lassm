@@ -49,10 +49,10 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="${pageContext.request.contextPath}/jsp/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="${pageContext.request.contextPath}/images/${sessionScope.user.img}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">zxd</a>
+                    <a href="#" class="d-block">${sessionScope.user.name}</a>
                 </div>
             </div>
 
@@ -85,11 +85,13 @@
 <script>
 	function home1()
 	{
-		u="<%=request.getContextPath()%>/jsp/";
+		u="<%=request.getContextPath()%>/old/get";
     	//u="<"+"%="+ "path"+ "%>/jsp/" + url;
         $("#main").html = "";
-       u+="oldinformation.jsp"
-        $("#main").load(u);
+        $("#main").load(u,{
+        	id:<%=request.getParameter("id")%>,
+        	rel:<%=request.getParameter("rel")%>
+        });
 	}
     $(function () {
 //         $(document).on('click', '.nav-link',function(){
@@ -115,14 +117,16 @@
                 var t=this;
                 if (url != "javascript:void(0)")//Ã¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
                 {
-                	
-                	u="<%=request.getContextPath()%>/jsp/";
+                	u="<%=request.getContextPath()%>/";
                 	//u="<"+"%="+ "path"+ "%>/jsp/" + url;
                     $("#main").html = "";
                    u+=url;
-                   u+=".jsp"
+                   //u+=".jsp"
+                   var id="${sessionScope.user.id}";
+                   var oldId=<%=request.getParameter("id")%>
                     $("#main").load(u,{
-                    	url:url
+                    	id:id,
+                    	oldId:oldId
                     });
                     return false;
                 }
@@ -138,8 +142,8 @@
                     var a="";
                     var p="";
                     var i1="";
-                    var menuid=1;
-                    var userType=0;
+                    var menuId=2;
+                    var userType=<%=request.getParameter("rel")%>;
                     var parentId=this.name;//Ã§ÂÂ¹Ã¥ÂÂ»Ã§ÂÂÃ©Â¡Â¹Ã§ÂÂnameÃ¥Â±ÂÃ¦ÂÂ§
                     $.ajax({
                         type: 'POST',
@@ -147,6 +151,7 @@
                         data: {
                         	parentId : parentId,
                         	userType : userType,
+                        	menuId : menuId
                         },
                         dataType: 'json',
                         success: function (data) {
@@ -199,8 +204,8 @@
         var p = "";
         var html = "";
         var parentId = 0;
-        var menuid=2;
-        var userType=0;
+        var menuId=2;
+        var userType=<%=request.getParameter("rel")%>;
         var i1="";
         $.ajax({
         	 type: 'POST',
@@ -208,6 +213,7 @@
              data: {
 					parentId : parentId,
 					userType : userType,
+					menuId : menuId
 					},
 			dataType: 'json',
 			success: function (data) {

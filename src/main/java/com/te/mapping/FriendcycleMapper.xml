@@ -3,16 +3,29 @@
 <mapper namespace="com.te.dao.FriendcycleDao" >
   <resultMap id="BaseResultMap" type="com.te.model.FriendCycle" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
     <result column="old_id" property="oldId" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="friend_cycle_article_id" property="friendCycleArticleId" jdbcType="INTEGER" />
     <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pname" property="pname" jdbcType="VARCHAR" />
+    
   </resultMap>
  
   <sql id="Base_Column_List" >
-    id, user_id, old_id, content, friend_cycle_article_id, img_url, createtime
+    id, parent_id, old_id, content, friend_cycle_article_id, img_url, createtime,name,pname
   </sql>
-  
+  <select id="getAll"  resultMap="BaseResultMap">
+  		select <include refid="Base_Column_List" /> from friendcycle where old_id=#{oldId} and parent_id=0
+  </select>
+   <select id="getpl"  resultMap="BaseResultMap">
+  		select <include refid="Base_Column_List" /> from friendcycle where friend_cycle_article_id=#{friendCycleId} and parent_id&gt;0
+  </select>
+  <insert id="insert" parameterType="com.te.model.FriendCycle">
+  INSERT INTO friendcycle(parent_id, old_id, content, friend_cycle_article_id, img_url, createtime,name,pname) 
+  VALUES(#{parentId},#{oldId},#{content},#{friendCycleArticleId},#{imgUrl},#{createtime},#{name},#{pname})
+  </insert>
+ 
 </mapper>

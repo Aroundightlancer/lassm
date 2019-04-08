@@ -1,18 +1,10 @@
 package com.te.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.util.Date;
-
 public class Activity  extends Entity {
 
     private Integer oldId;
     private String oldName;
     private String activityName;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date date;
 
     public Integer getOldId() {
         return oldId;
@@ -38,11 +30,5 @@ public class Activity  extends Entity {
         this.activityName = activityName;
     }
 
-    public Date getActivityDate() {
-        return date;
-    }
-
-    public void setActivityDate(Date activityDate) {
-        this.date = activityDate;
-    }
+   
 }

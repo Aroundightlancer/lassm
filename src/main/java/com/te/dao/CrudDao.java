@@ -6,13 +6,7 @@ import java.util.List;
 public interface CrudDao<T> extends BaseDao {
 
    public List<T> findAll();
-
-    /**
-     * 获取单条数据
-     *
-     * @param id
-     * @return
-     */
+   public List<T> getAll(Integer id);
     public T get(Integer id);
 
     /**

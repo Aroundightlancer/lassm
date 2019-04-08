@@ -14,5 +14,13 @@
   <sql id="Base_Column_List" >
     id, name, birthday, age, sex, introduction, img
   </sql>
- 
+  <select id="get" resultMap="BaseResultMap">
+ 	SELECT  <include refid="Base_Column_List" /> FROM old WHERE id=#{id}
+ </select>
+ <update id="update" parameterType="com.te.model.Old">
+ 	UPDATE old SET
+ 	birthday=#{birthday},age=#{age},sex=#{sex}
+ 	WHERE id=#{id}
+ 	
+ </update>
 </mapper>

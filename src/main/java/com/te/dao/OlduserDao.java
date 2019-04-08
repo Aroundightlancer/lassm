@@ -5,5 +5,5 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface OlduserDao extends CrudDao<OldUser>{
-  
+	   List<OldUser> getall(@Param("id") Integer id);
 }

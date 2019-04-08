@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"  
     pageEncoding="utf-8"%>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <html>
 <%@ include file="include.jsp"%>
 <head>
@@ -36,24 +38,7 @@
                     </tr>
                    
                   </table>
-                </div>             
-                 </div> -->
-            <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">与您相关的老人列表</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>老人姓名</th>
-                  <th>性别</th>
-                  <th>年龄</th>
-                  <th>与您的关系</th>
-                </tr>
-                </thead>
-                <tbody>
+                </div>        
                 <tr>
                   <td><a  id="name" name="name" title="点击进入老人详细信息页" href="">张三</a></td>
                   <td>男
@@ -75,14 +60,48 @@
                   <td>73</td>
                   <td>朋友</td>
                 </tr>
-                
+                     
+                 </div> -->
+            <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">与您相关的老人列表</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>老人姓名</th>
+                  
+                  <th>与您的关系</th>
+                </tr>
+                </thead>
+                <tbody>
+			        <c:forEach items="${oldusers}" var="k" >
+			     		<tr>
+							<td>
+							<a title="点击进入老人详细信息页" href="${pageContext.request.contextPath}/jsp/index1.jsp?id=${k.oldId}&rel=${k.relationship}">
+							${k.oldName}
+							</a></td>
+							<td>
+							<c:if test="${k.relationship==1}">
+								朋友
+							</c:if>
+							<c:if test="${k.relationship==2}">
+								亲属
+							</c:if>
+							<c:if test="${k.relationship==3}">
+								子女
+							</c:if>
+							</td>
+						</tr>
+			 		</c:forEach>
+			 		
                 </tbody>
                 <tfoot>
                 <tr>
                  <tr>
                   <th>老人姓名</th>
-                  <th>性别</th>
-                  <th>年龄</th>
                   <th>与您的关系</th>
                 </tr>
                 </tfoot>

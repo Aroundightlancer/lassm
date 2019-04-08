@@ -52,6 +52,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script src="${pageContext.request.contextPath}/jsp/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
+
 <script src="${pageContext.request.contextPath}/jsp/plugins/datepicker/bootstrap-datepicker.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="${pageContext.request.contextPath}/jsp/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>

@@ -6,6 +6,6 @@ import com.te.model.result.ApiResult;
 
 public interface MenuService {
 	 
-    ApiResult getChild(@Param("parentId") Integer parentId,@Param("userType") Integer userType);
+    ApiResult getChild(@Param("parentId") Integer parentId,@Param("userType") Integer userType, @Param("menuId") Integer menuId);
 
 }
