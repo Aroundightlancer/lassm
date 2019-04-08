@@ -118,6 +118,12 @@
                 if (url != "javascript:void(0)")//Ã¦ÂÂ¯Ã¥ÂÂ¶Ã¥Â­Â
                 {
                 	u="<%=request.getContextPath()%>/";
+                	if(url=="index.jsp")//返回上级
+                	{
+                		$(location).attr('location', "http://localhost:8080/lassm/"+url);
+                		return ;
+                	}
+                	
                 	//u="<"+"%="+ "path"+ "%>/jsp/" + url;
                     $("#main").html = "";
                    u+=url;
@@ -130,6 +136,7 @@
                     });
                     return false;
                 }
+                
                 else if(this.parentNode.children.length>1)//ä¸æ¯ç¬¬ä¸æ¬¡ç¹å»
                 {
                     return;

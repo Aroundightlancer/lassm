@@ -34,7 +34,7 @@
 							${k.activityName}
 							</td>
 							<td>
-							<fmt:formatDate value="${k.date}" pattern="yyyy-MM-dd"/>
+							<fmt:formatDate value="${k.createtime}" pattern="yyyy-MM-dd"/>
 							</td>
 						</tr>
 			 		</c:forEach>

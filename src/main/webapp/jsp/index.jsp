@@ -288,7 +288,7 @@
                  
 
                 }            
-
+               $("#mt-2 ul").html="";
                 $("#mt-2 ul").append(html);
                 // $("#main").html = "";
                 // $("#main").load("../../food.html");

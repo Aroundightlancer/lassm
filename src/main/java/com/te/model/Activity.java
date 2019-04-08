@@ -1,6 +1,6 @@
 package com.te.model;
 
-public class Activity  extends Entity {
+public class Activity extends Entity {
 
     private Integer oldId;
     private String oldName;
